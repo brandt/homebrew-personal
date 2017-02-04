@@ -15,9 +15,6 @@ class OpenconnectKeychain < Formula
   homepage "https://github.com/brandt/openconnect"
   head "https://github.com/brandt/openconnect.git", :branch => "devel"
 
-  # No longer compiles against OpenSSL 1.0.2 - It chooses the system OpenSSL instead.
-  # http://lists.infradead.org/pipermail/openconnect-devel/2015-February/002757.html
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -28,8 +25,8 @@ class OpenconnectKeychain < Formula
   depends_on "stoken" => :optional
 
   resource "vpnc-script" do
-    url "http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/a64e23b1b6602095f73c4ff7fdb34cccf7149fd5:/vpnc-script"
-    sha256 "cc30b74788ca76928f23cc7bc6532425df8ea3701ace1454d38174ca87d4b9c5"
+    url "http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/6e04e0bbb66c0bf0ae055c0f4e58bea81dbb5c3c:/vpnc-script"
+    sha256 "48b1673e1bfaacbfa4e766c41e15dd8458726cca8f3e07991d078d0d5b7c55e9"
   end
 
   def install
