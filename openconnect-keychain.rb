@@ -1,18 +1,18 @@
-# openconnect-keychain HEAD-only Formula
+# openconnect-keychain Formula
 #
 # Install with:
 #
-#   brew tap brew tap brandt/personal
-#   brew install --HEAD openconnect-keychain
+#   brew install brandt/personal/openconnect-keychain
 #
-# Upgrade with:
-#
-#   brew update
-#   brew reinstall --HEAD openconnect-keychain
 
 class OpenconnectKeychain < Formula
   desc "Openconnect client with Mac OS X Keychain support"
   homepage "https://github.com/brandt/openconnect"
+  url "https://github.com/brandt/openconnect.git",
+      :tag => "v7.08-keychain",
+      :revision => "13d16a569e70b6b61e4cb70747530ccbf8c0d3e6"
+  revision 1
+
   head "https://github.com/brandt/openconnect.git", :branch => "devel"
 
   depends_on "autoconf" => :build
@@ -33,10 +33,8 @@ class OpenconnectKeychain < Formula
     etc.install resource("vpnc-script")
     chmod 0755, "#{etc}/vpnc-script"
 
-    if build.head?
-      ENV["LIBTOOLIZE"] = "glibtoolize"
-      system "./autogen.sh"
-    end
+    ENV["LIBTOOLIZE"] = "glibtoolize"
+    system "./autogen.sh"
 
     args = %W[
       --prefix=#{prefix}
