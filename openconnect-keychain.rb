@@ -8,10 +8,9 @@
 class OpenconnectKeychain < Formula
   desc "Openconnect client with Mac OS X Keychain support"
   homepage "https://github.com/brandt/openconnect"
-  url "https://github.com/brandt/openconnect/archive/v7.08-keychain.tar.gz"
-  sha256 "ddd01fa9798370e34d559739c3707fa489838ea33036a4d128f01d0b91d9f3f4"
-  version "7.08"
-  revision 1
+  url "https://github.com/brandt/openconnect/archive/v7.08-2.keychain.tar.gz"
+  sha256 "3a0bfd796e33ba0045d698b7d6902fa3acd0c16df1da4238b1888ab68a8f2a2c"
+  version "7.08-2"
 
   head do
     url "https://github.com/brandt/openconnect.git", :branch => "devel"
@@ -21,6 +20,7 @@ class OpenconnectKeychain < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "oath-toolkit" => :optional
