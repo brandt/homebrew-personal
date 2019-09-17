@@ -9,8 +9,8 @@ class OpenconnectKeychain < Formula
   desc "Openconnect client with Mac OS X Keychain support"
   homepage "https://github.com/brandt/openconnect"
   url "https://github.com/brandt/openconnect/archive/v7.08-2.keychain.tar.gz"
-  sha256 "3a0bfd796e33ba0045d698b7d6902fa3acd0c16df1da4238b1888ab68a8f2a2c"
   version "7.08-2"
+  sha256 "3a0bfd796e33ba0045d698b7d6902fa3acd0c16df1da4238b1888ab68a8f2a2c"
 
   head do
     url "https://github.com/brandt/openconnect.git", :branch => "devel"

@@ -10,8 +10,6 @@
 #   brew update
 #   brew reinstall --HEAD certfetch
 
-require "language/go"
-
 class Certfetch < Formula
   desc "Command-line tool for fetching certificates"
   homepage "https://github.com/brandt/certfetch"
