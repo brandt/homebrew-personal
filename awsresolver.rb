@@ -9,15 +9,13 @@
 #   brew reinstall --HEAD brandt/personal/awsresolver
 #
 
-require "language/go"
-
 class Awsresolver < Formula
   desc "DNS resolver that decodes AWS EC2 internal hostnames"
   homepage "https://github.com/brandt/awsresolver"
-  head "https://github.com/brandt/awsresolver.git"
   url "https://github.com/brandt/awsresolver.git",
       :tag      => "v0.1.0",
       :revision => "af5e58f9bb364b6be3d426b007e783e66909e6fd"
+  head "https://github.com/brandt/awsresolver.git"
 
   depends_on "go" => :build
 
