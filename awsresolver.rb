@@ -1,12 +1,8 @@
 # awsresolver
 #
-# Install from HEAD with:
+# Install with:
 #
-#   brew install --HEAD brandt/personal/awsresolver
-#
-# Upgrade from HEAD with:
-#
-#   brew reinstall --HEAD brandt/personal/awsresolver
+#     brew install brandt/personal/awsresolver
 #
 
 class Awsresolver < Formula
