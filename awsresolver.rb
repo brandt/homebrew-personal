@@ -9,8 +9,8 @@ class Awsresolver < Formula
   desc "DNS resolver that decodes AWS EC2 internal hostnames"
   homepage "https://github.com/brandt/awsresolver"
   url "https://github.com/brandt/awsresolver.git",
-      :tag      => "v0.1.1",
-      :revision => "5665a2d2e8be1118875ae8d39dd182c93b172dc2"
+      :tag      => "v0.1.2",
+      :revision => "9da56167568138c56da9c87ad95f716c7f15ace0"
   head "https://github.com/brandt/awsresolver.git"
 
   depends_on "go" => :build
