@@ -4,6 +4,11 @@
 #
 #   brew install brandt/personal/openconnect-keychain
 #
+# If for some reason you need to go back to the old version of openconnect-keychain, you can reinstall the v7.08-2 release by running:
+#
+#     brew uninstall openconnect-keychain
+#     brew install https://raw.githubusercontent.com/brandt/homebrew-personal/5dfb11b/openconnect-keychain.rb
+#
 
 class OpenconnectKeychain < Formula
   desc "Openconnect client with Mac OS X Keychain support"
@@ -52,14 +57,14 @@ class OpenconnectKeychain < Formula
     system "make", "install"
   end
 
-  # def caveats; <<~EOS
-  #   If for some reason you need to go back to the old version of openconnect-keychain, you can reinstall the v7.08-2 release by running:
-  #
-  #     brew uninstall openconnect-keychain
-  #     brew install https://raw.githubusercontent.com/brandt/homebrew-personal/5dfb11b/openconnect-keychain.rb
-  #
-  #   EOS
-  # end
+  def caveats; <<~EOS
+      Pulse Secure users with push-based 2FA:
+
+      You can automatically send "push" at the "password#2" prompt with this flag:
+
+          --form-entry="frmLogin:password#2=push"
+    EOS
+  end
 
   test do
     assert_match "Open client for multiple VPN protocols", pipe_output("#{bin}/openconnect-keychain 2>&1")
