@@ -8,11 +8,12 @@
 class OpenconnectKeychain < Formula
   desc "Openconnect client with Mac OS X Keychain support"
   homepage "https://github.com/brandt/openconnect"
-  url "https://github.com/brandt/openconnect/archive/v7.08-2.keychain.tar.gz"
-  version "7.08-2"
-  sha256 "3a0bfd796e33ba0045d698b7d6902fa3acd0c16df1da4238b1888ab68a8f2a2c"
+  url "https://github.com/brandt/openconnect/archive/v8.05-1.keychain.tar.gz"
+  version "8.05-1"
+  sha256 "a910573d1193e39e59f2963d8a090729d95dcbc1c9b3734548f5d686db6edcfe"
 
   head do
+    # url "#{ENV['HOME']}/src/openconnect-keychain/.git/", :branch => "v8_05-devel", :using => :git
     url "https://github.com/brandt/openconnect.git", :branch => "devel"
   end
 
@@ -23,12 +24,13 @@ class OpenconnectKeychain < Formula
 
   depends_on "gettext"
   depends_on "gnutls"
+  depends_on "stoken"
   depends_on "oath-toolkit" => :optional
-  depends_on "stoken" => :optional
 
   resource "vpnc-script" do
-    url "http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/6e04e0bbb66c0bf0ae055c0f4e58bea81dbb5c3c:/vpnc-script"
-    sha256 "48b1673e1bfaacbfa4e766c41e15dd8458726cca8f3e07991d078d0d5b7c55e9"
+    # See: http://git.infradead.org/users/dwmw2/vpnc-scripts.git
+    url "http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/c84fb8e5a523a647a01a1229a9104db934e19f00:/vpnc-script"
+    sha256 "20f05baf2857cb48073aca8b90d84ddc523f09b9700a5986a2f7e60e76917385"
   end
 
   def install
@@ -50,7 +52,16 @@ class OpenconnectKeychain < Formula
     system "make", "install"
   end
 
+  # def caveats; <<~EOS
+  #   If for some reason you need to go back to the old version of openconnect-keychain, you can reinstall the v7.08-2 release by running:
+  #
+  #     brew uninstall openconnect-keychain
+  #     brew install https://raw.githubusercontent.com/brandt/homebrew-personal/5dfb11b/openconnect-keychain.rb
+  #
+  #   EOS
+  # end
+
   test do
-    assert_match /AnyConnect VPN/, pipe_output("#{bin}/openconnect-keychain 2>&1")
+    assert_match "Open client for multiple VPN protocols", pipe_output("#{bin}/openconnect-keychain 2>&1")
   end
 end
