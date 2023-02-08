@@ -39,33 +39,12 @@ class Awsresolver < Formula
     EOS
   end
 
-  # While this could run at startup, at the moment it seems preferable to run
-  # it as the regular, unprivileged user when they login.
-  plist_options :startup => false, :manual => "awsresolver run"
-
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>KeepAlive</key>
-        <true/>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/awsresolver</string>
-          <string>run</string>
-        </array>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/awsresolver.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/awsresolver.log</string>
-      </dict>
-    </plist>
-  EOS
+  service do
+    run [opt_bin/"awsresolver", "run"]
+    run_type :immediate
+    keep_alive true
+    log_path var/"log/awsresolver.log"
+    error_log_path var/"log/awsresolver.log"
   end
 
   test do
