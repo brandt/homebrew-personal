@@ -19,8 +19,8 @@ class OpenconnectKeychain < Formula
   sha256 "a910573d1193e39e59f2963d8a090729d95dcbc1c9b3734548f5d686db6edcfe"
 
   head do
-    # url "#{ENV['HOME']}/src/openconnect-keychain/.git/", :branch => "v8_05-devel", :using => :git
-    url "https://github.com/brandt/openconnect.git", :branch => "devel"
+    # url "#{ENV['HOME']}/src/openconnect-keychain/.git/", branch: "v8_05-devel", using: :git
+    url "https://github.com/brandt/openconnect.git", branch: "devel"
   end
 
   depends_on "autoconf" => :build

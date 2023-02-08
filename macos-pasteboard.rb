@@ -3,7 +3,7 @@ class MacosPasteboard < Formula
   homepage "https://github.com/chbrown/macos-pasteboard"
   version "0.0.1"
   url "https://github.com/chbrown/macos-pasteboard.git",
-      :revision => "22653fc5edfbfd420b8d8425b41bdf3d048f8092"
+      revision: "22653fc5edfbfd420b8d8425b41bdf3d048f8092"
 
   def install
     system "make", "pbv"
